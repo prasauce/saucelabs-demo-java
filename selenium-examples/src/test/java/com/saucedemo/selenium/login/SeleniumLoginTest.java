@@ -69,6 +69,7 @@ public class SeleniumLoginTest {
         Assertions.assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
     }
     
+    @DisplayName("Swag Labs Login with Selenium That Purposely Fails")
     @Test
     public void swagLabsLoginTest2() {
         driver.get("https://www.saucedemo.com");
