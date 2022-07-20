@@ -30,3 +30,4 @@ jobs:
         mvn test -pl selenium-testng-examples -Dtest=ParallelSingleBrowserTest
         mvn test -pl appium-examples -Dtest=AndroidNativeAppTest
         mvn test -pl appium-examples -Dtest=IOSNativeAppTest
+        mvn test -pl best-practice -Dtest=EmuSimWebAppTests
