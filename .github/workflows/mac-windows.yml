@@ -4,9 +4,8 @@
 name: Windows and Mac OS tests
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
+  schedule:
+    - cron: "5 * * * *"
 
 jobs:
   build:
