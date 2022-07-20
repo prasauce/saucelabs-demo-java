@@ -25,33 +25,39 @@ jobs:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl selenium-examples -Dtest=SeleniumLoginTest
+      continue-on-error: true
       
     - name: Run Cross Browser Platform Test
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl selenium-testng-examples -Dtest=CrossBrowserPlatformTest
+      continue-on-error: true
       
     - name: Run Parallel Single Browser Test Which Purposely Fails
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl selenium-testng-examples -Dtest=ParallelSingleBrowserTest
+      continue-on-error: true
       
     - name: Run Android Native App Test
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl appium-examples -Dtest=AndroidNativeAppTest
+      continue-on-error: true
       
     - name: Run IOS Native App Test
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl appium-examples -Dtest=IOSNativeAppTest
+      continue-on-error: true
     
     - name: Run Emu Sim Web App Tests
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl best-practice -Dtest=EmuSimWebAppTests
+      continue-on-error: true
