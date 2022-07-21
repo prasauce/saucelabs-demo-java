@@ -70,8 +70,9 @@ public class SeleniumLoginTest {
     }
 
     @DisplayName("Swag Labs Login with Selenium (A Purposely Failing Test)")
-    @Test
+    @RepeatedTest(4)
     public void swagLabsLoginFailTest() {
+        driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (A Purposely Failing Test)");
         driver.get("https://www.saucedemo.com");
 
         By usernameFieldLocator = By.cssSelector("#user-name");
