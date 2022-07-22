@@ -99,7 +99,7 @@ public class SeleniumLoginTest {
         By passwordFieldLocator = By.cssSelector("#password");
         By submitButtonLocator = By.cssSelector(".btn_action");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(180));
         wait.until((driver) -> driver.findElement(usernameFieldLocator).isDisplayed());
 
         WebElement userNameField = driver.findElement(usernameFieldLocator);
