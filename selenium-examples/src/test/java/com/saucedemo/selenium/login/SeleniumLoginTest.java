@@ -92,6 +92,30 @@ public class SeleniumLoginTest {
 
         Assertions.assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
     }
+    
+    @DisplayName("Swag Labs Login with Selenium (A Purposely Erroring Test)")
+    @RepeatedTest(3)
+    public void swagLabsLoginFailTest() {
+        driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (A Purposely Erroring Test)");
+        driver.get("https://www.saucedemo.com");
+
+        By usernameFieldLocator = By.cssSelector("#user-name-wrong");
+        By passwordFieldLocator = By.cssSelector("#password");
+        By submitButtonLocator = By.cssSelector(".btn_action");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(90));
+        wait.until((driver) -> driver.findElement(usernameFieldLocator).isDisplayed());
+
+        WebElement userNameField = driver.findElement(usernameFieldLocator);
+        WebElement passwordField = driver.findElement(passwordFieldLocator);
+        WebElement submitButton = driver.findElement(submitButtonLocator);
+
+        userNameField.sendKeys("locked_out_user");
+        passwordField.sendKeys("secret_sauce");
+        submitButton.click();
+
+        Assertions.assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
+    }
 
     /**
      * Custom TestWatcher for Sauce Labs projects.
