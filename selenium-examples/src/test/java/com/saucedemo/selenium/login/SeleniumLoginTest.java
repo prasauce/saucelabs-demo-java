@@ -1,10 +1,6 @@
 package com.saucedemo.selenium.login;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.api.extension.TestWatcher;
@@ -92,10 +88,10 @@ public class SeleniumLoginTest {
 
         Assertions.assertEquals("https://www.saucedemo.com/inventory.html", driver.getCurrentUrl());
     }
-    
+
     @DisplayName("Swag Labs Login with Selenium (A Purposely Erroring Test)")
     @RepeatedTest(3)
-    public void swagLabsLoginFailTest() {
+    public void swagLabsLoginErrorTest() {
         driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (A Purposely Erroring Test)");
         driver.get("https://www.saucedemo.com");
 
@@ -132,7 +128,7 @@ public class SeleniumLoginTest {
         }
 
         private void endSession(boolean passed) {
-            String result = passed ? "passed" : "failed"; 
+            String result = passed ? "passed" : "failed";
             driver.executeScript("sauce:job-result=" + result);
 
             driver.quit();
