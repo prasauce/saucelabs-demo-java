@@ -66,7 +66,7 @@ public class SeleniumLoginTest {
     }
 
     @DisplayName("Swag Labs Login with Selenium (A Purposely Failing Test)")
-    @RepeatedTest(4)
+    @RepeatedTest(2)
     public void swagLabsLoginFailTest() {
         driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (A Purposely Failing Test)");
         driver.get("https://www.saucedemo.com");
@@ -90,7 +90,7 @@ public class SeleniumLoginTest {
     }
 
     @DisplayName("Swag Labs Login with Selenium (A Purposely Erroring Test)")
-    @RepeatedTest(3)
+    @RepeatedTest(2)
     public void swagLabsLoginErrorTest() {
         driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (A Purposely Erroring Test)");
         driver.get("https://www.saucedemo.com");
