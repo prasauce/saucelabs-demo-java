@@ -18,54 +18,37 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
-      with:
-        java-version: 1.8
-    - name: Run Selenium Login Test Where One Purposely Fails
       env:
         SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
         SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+      with:
+        java-version: 1.8
+        
+    - name: Run Selenium Login Test Where One Purposely Fails
       run: mvn test -pl selenium-examples -Dtest=SeleniumLoginTest
       continue-on-error: true
       
     - name: Run Cross Browser Platform Test
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl selenium-testng-examples -Dtest=CrossBrowserPlatformTest
       continue-on-error: true
       
     - name: Run Parallel Single Browser Test Which Purposely Fails
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl selenium-testng-examples -Dtest=ParallelSingleBrowserTest
       continue-on-error: true
       
     - name: Run Android Native App Test
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl appium-examples -Dtest=AndroidNativeAppTest
       continue-on-error: true
       
     - name: Run IOS Native App Test
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl appium-examples -Dtest=IOSNativeAppTest
       continue-on-error: true
     
     - name: Run Emu Sim Web App Tests
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl best-practice -Dtest=EmuSimWebAppTests
       continue-on-error: true
       
     - name: Run Performance Test
-      env:
-        SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-        SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
       run: mvn test -pl best-practice -Dtest=PerformanceTests
       continue-on-error: true
       
