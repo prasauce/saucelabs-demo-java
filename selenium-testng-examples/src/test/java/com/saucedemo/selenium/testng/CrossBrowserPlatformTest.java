@@ -39,7 +39,7 @@ public class CrossBrowserPlatformTest extends SauceParameterizedBaseTest {
         sauceOptions.setCapability("browserVersion", parameters[1]);
         sauceOptions.setCapability("platformName", parameters[2]);
         sauceOptions.setCapability("name", "Load Page");
-        sauceOptions.setCapability("build", "build-123");
+        sauceOptions.setCapability("build", "build123");
         return sauceOptions;
     }
 
