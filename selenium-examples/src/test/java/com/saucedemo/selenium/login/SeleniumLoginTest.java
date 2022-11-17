@@ -115,7 +115,7 @@ public class SeleniumLoginTest {
     
     @DisplayName("Swag Labs Login with Selenium (Forgetting to Send Test Status)")
     @RepeatedTest(2)
-    public void swagLabsLoginErrorTest() {
+    public void swagLabsLoginCompletedTest() {
         driver.executeScript("sauce:job-name=Swag Labs Login with Selenium (Forgetting to Send Test Status)");
         driver.get("https://www.saucedemo.com");
 
